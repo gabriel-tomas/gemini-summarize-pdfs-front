@@ -1,6 +1,6 @@
 import { noty } from './utils/notyMsg.js';
 
-const environment = 'development';
+const environment = 'production';
 
 const config = {
   development: 'http://localhost:3000/upload',

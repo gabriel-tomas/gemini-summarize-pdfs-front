@@ -4,7 +4,7 @@ const environment = 'production';
 
 const config = {
   development: 'http://localhost:3000/upload',
-  production: 'https://https://gemini-summarize-pdfs.onrender.com/upload'
+  production: 'https://gemini-summarize-pdfs.onrender.com/upload'
 };
 
 const defaultAPIUrl = config[environment];

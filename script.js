@@ -1,6 +1,6 @@
 import { noty } from './utils/notyMsg.js';
 
-const environment = 'production';
+const environment = 'development';
 
 const config = {
   development: 'http://localhost:3000/upload',
@@ -18,10 +18,11 @@ export const handleSubmitForm = async (e) => {
   loadingEl.classList.add('on');
 
   try {
-    const formData = new FormData(e.target);
+    const oldFormData = new FormData(e.target);
+    const formData = new FormData();
 
-    const promptValue = formData.get('textInput');
-    const pdfFiles = formData.getAll('pdfsInput'); 
+    const promptValue = oldFormData.get('textInput');
+    const pdfFiles = oldFormData.getAll('pdfsInput'); 
      
     if (promptValue.length < 3) {
       noty('Prompt tem que ter no minímo 3 caracteres', 'warning');
@@ -31,11 +32,15 @@ export const handleSubmitForm = async (e) => {
     formData.append('prompt', promptValue);
     pdfFiles.forEach((pdf, i) => formData.append(i, pdf));
 
+    console.log(pdfFiles);
+
     const response = await fetch(defaultAPIUrl, {
       method: 'POST',
       body: formData,
       credentials: 'include'
     });
+
+    console.log(formData);
 
     const bodyJson = await response.json();
 

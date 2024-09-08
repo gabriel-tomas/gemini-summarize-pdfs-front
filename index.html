@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resumidor de PDFs</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
+  <script type="module" src="./script.js"></script>
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📁  </text></svg>">
+</head>
+<body>
+  <main>
+    <h1>Resumidor de PDFs</h1>
+    <form onsubmit="handleSubmitForm(event)" method="post">
+      <label for="textInput">Texto para resumir:</label>
+      <textarea id="textInput" name="textInput" required placeholder="prompt"></textarea>
+      <label for="pdfsInput">Selecione um arquivo PDF:</label>
+      <input type="file" id="pdfsInput" name="pdfsInput" required multiple>
+      <button type="submit">Resumir</button>
+    </form>
+    <div class="loader"></div>
+    <div class="result">
+      <h2>Resultado:</h2>
+      <div class="content"></div>
+    </div>
+  </main>
+</body>
+</html>
